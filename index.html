@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>Trustvox Shelf-Rate test</title>
-<script>
-  var _trustvox_shelf_rate = _trustvox_shelf_rate || [];
-  _trustvox_shelf_rate.push(['_storeId', '1']);
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Trustvox Shelf-Rate test</title>
+        <script>
+         var _trustvox_shelf_rate = _trustvox_shelf_rate || [];
+         _trustvox_shelf_rate.push(['_storeId', '1']);
+         _trustvox_shelf_rate.push(['_productContainer', '.product-list']);
 
-  (function() {
-     var tv = document.createElement('script'); tv.type = 'text/javascript'; tv.async = true;
-     tv.src = '//s3-sa-east-1.amazonaws.com/trustvox-staging-rate-widget-js/widget.js';
-     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tv, s);
-   })();
-</script>
-</head>
-<body>
-<ul class="product-list">
-  <li data-trustvox-product-code="1"></li>
-  <li data-trustvox-product-code="2"></li>
-  <li data-trustvox-product-code="100"></li>
-  <li data-trustvox-product-code="14"></li>
-  <li data-trustvox-product-code="15"></li>
-</ul>
-</body>
+         function addProduct() {
+             var anchor = document.querySelector(".product-list");
+             var element = document.createElement("LI");
+             element.setAttribute("data-trustvox-product-code", 1);
+             anchor.appendChild(element);
+         }
+
+         (function() {
+             var tv = document.createElement('script'); tv.type = 'text/javascript'; tv.async = true;
+             tv.src = '//s3-sa-east-1.amazonaws.com/trustvox-staging-rate-widget-js/widget.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tv, s);
+         })();
+        </script>
+    </head>
+    <body>
+        <ul class="product-list">
+            <li data-trustvox-product-code="2"></li>
+            <li data-trustvox-product-code="100"></li>
+            <li data-trustvox-product-code="14"></li>
+            <li data-trustvox-product-code="15"></li>
+        </ul>
+        <a href="#" onclick="addProduct()">Add Product!</a>
+    </body>
 </html>
-
